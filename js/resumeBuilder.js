@@ -1,6 +1,5 @@
-function formattedAttribute(html, attributeValue, stringToReplace) {
-  var stringToReplace = stringToReplace || "%data%"
-  return html.replace(stringToReplace, attributeValue);
+function formattedAttribute(html, attributeValue) {
+  return html.replace("%data%", attributeValue);
 };
 
 var bio = {
@@ -43,9 +42,9 @@ var bio = {
     if (this.skills.length > 0) {
       $("#header").append(HTMLskillsStart);
 
-      for (var i = 0; i < this.skills.length; i++) {
-        $("#skills").append(formattedAttribute(HTMLskills, this.skills[i]));
-      }
+      this.skills.forEach(function(skill) {
+        $("#skills").append(formattedAttribute(HTMLskills, skill));
+      });
     }
 
     $("#header").prepend(formattedAttribute(HTMLheaderRole, this.role));
@@ -81,6 +80,7 @@ var education = {
     }
   ],
   display: function() {
+    //schools
     this.schools.forEach(function(school) {
      $('#education').append(HTMLschoolStart);
      var formattedNameAndDegree = formattedAttribute(HTMLschoolName, school.name) + formattedAttribute(HTMLschoolDegree, school.degree);
@@ -172,10 +172,25 @@ var projects = {
     }
   ],
   display: function() {
-    return null;
+    this.projects.forEach(function(project) {
+      $("#projects").append(HTMLprojectStart);
+
+      $(".project-entry:last").append(formattedAttribute(HTMLprojectTitle, project.title));
+
+      $(".project-entry:last").append(formattedAttribute(HTMLprojectDates, project.dates));
+
+      $(".project-entry:last").append(formattedAttribute(HTMLprojectDescription, project.description));
+
+      if (project.images.length > 0) {
+        project.images.forEach(function(image) {
+          $(".project-entry:last").append(formattedAttribute(HTMLprojectImage, image));
+        });
+      }
+    });
   },
 }
 
 bio.display();
 education.display();
 work.display();
+projects.display();
