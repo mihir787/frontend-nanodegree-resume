@@ -154,16 +154,34 @@ function initializeMap() {
       title: name
     });
 
+    function contentString(name) {
+      var contentString
+      if(name === "Denver, CO, USA") {
+        contentString = '<p>Full-stack developer at the ATHN</p>'
+      } else {
+        contentString = '<p>Research Specialist at Group Health Research Institute</p>'
+      }
+
+      return ('<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">' + name + '</h1>'+
+      '<div id="bodyContent">'+
+      contentString +
+      '</div>'+
+      '</div>');
+    }
+
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: contentString(name)
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -225,11 +243,10 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
-  //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+window.addEventListener('resize', function(e) {
+ map.fitBounds(mapBounds);
+});
