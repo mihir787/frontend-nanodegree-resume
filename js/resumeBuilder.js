@@ -84,7 +84,7 @@ var education = {
     this.schools.forEach(function(school) {
      $('#education').append(HTMLschoolStart);
      var formattedNameAndDegree = formattedAttribute(HTMLschoolName, school.name) + formattedAttribute(HTMLschoolDegree, school.degree);
-     
+
      $(".education-entry:last").append(formattedNameAndDegree);
 
      $(".education-entry:last").append(formattedAttribute(HTMLschoolDates, school.dates));
@@ -130,7 +130,17 @@ var work = {
     },
   ],
   display: function() {
-    return null;
+    this.jobs.forEach(function(job) {
+      $("#workExperience").append(HTMLworkStart);
+
+      var formettedEmployerTitle = formattedAttribute(HTMLworkEmployer, job.employer); + formattedAttribute(HTMLworkTitle, job.title);
+      $(".work-entry:last").append(formettedEmployerTitle);
+
+      $(".work-entry:last").append(formattedAttribute(HTMLworkDates, job.dates));
+      $(".work-entry:last").append(formattedAttribute(HTMLworkLocation, job.location));
+
+      $(".work-entry:last").append(formattedAttribute(HTMLworkDescription, job.description));
+    })
   }
 }
 
@@ -163,8 +173,9 @@ var projects = {
   ],
   display: function() {
     return null;
-  }
+  },
 }
 
 bio.display();
 education.display();
+work.display();
