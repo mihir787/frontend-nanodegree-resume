@@ -81,7 +81,34 @@ var education = {
     }
   ],
   display: function() {
-    return null;
+    this.schools.forEach(function(school) {
+     $('#education').append(HTMLschoolStart);
+     var formattedNameAndDegree = formattedAttribute(HTMLschoolName, school.name) + formattedAttribute(HTMLschoolDegree, school.degree);
+     
+     $(".education-entry:last").append(formattedNameAndDegree);
+
+     $(".education-entry:last").append(formattedAttribute(HTMLschoolDates, school.dates));
+
+     $(".education-entry:last").append(formattedAttribute(HTMLschoolLocation, school.location));
+
+     if (school.majors.length > 0) {
+       school.majors.forEach(function(major){
+         $(".education-entry:last").append(formattedAttribute(HTMLschoolMajor, major));
+       });
+     }
+   });
+   //online classes
+   $('#education').append(HTMLonlineClasses)
+   this.onlineCourses.forEach(function(course){
+     $('#education').append(HTMLschoolStart);
+
+     var formattedTitleAndSchool = formattedAttribute(HTMLonlineTitle, course.title) + formattedAttribute(HTMLonlineSchool, course.school)
+     $(".education-entry:last").append(formattedTitleAndSchool);
+
+     $(".education-entry:last").append(formattedAttribute(HTMLonlineDates, course.dates));
+
+     $(".education-entry:last").append(formattedAttribute(HTMLonlineURL, course.url));
+   });
   }
 };
 
@@ -140,3 +167,4 @@ var projects = {
 }
 
 bio.display();
+education.display();
