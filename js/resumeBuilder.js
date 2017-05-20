@@ -1,6 +1,6 @@
 function formattedAttribute(html, attributeValue) {
   return html.replace("%data%", attributeValue);
-};
+}
 
 var bio = {
   name: 'Mihir Parikh',
@@ -31,7 +31,7 @@ var bio = {
     $("#topContacts").append(formattedGithub);
     $("#footerContacts").append(formattedGithub);
 
-    var formattedLocation = formattedAttribute(HTMLlocation, this.contacts.location)
+    var formattedLocation = formattedAttribute(HTMLlocation, this.contacts.location);
     $("#topContacts").append(formattedLocation);
     $("#footerContacts").append(formattedLocation);
 
@@ -95,11 +95,11 @@ var education = {
       }
     });
     //online classes
-    $('#education').append(HTMLonlineClasses)
+    $('#education').append(HTMLonlineClasses);
     this.onlineCourses.forEach(function(course) {
       $('#education').append(HTMLschoolStart);
 
-      var formattedTitleAndSchool = formattedAttribute(HTMLonlineTitle, course.title) + formattedAttribute(HTMLonlineSchool, course.school)
+      var formattedTitleAndSchool = formattedAttribute(HTMLonlineTitle, course.title) + formattedAttribute(HTMLonlineSchool, course.school);
       $(".education-entry:last").append(formattedTitleAndSchool);
 
       $(".education-entry:last").append(formattedAttribute(HTMLonlineDates, course.dates));
@@ -136,9 +136,9 @@ var work = {
       $(".work-entry:last").append(formattedAttribute(HTMLworkLocation, job.location));
 
       $(".work-entry:last").append(formattedAttribute(HTMLworkDescription, job.description));
-    })
+    });
   }
-}
+};
 
 var projects = {
   projects: [{
@@ -183,7 +183,7 @@ var projects = {
       }
     });
   },
-}
+};
 
 bio.display();
 education.display();

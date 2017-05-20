@@ -153,11 +153,11 @@ function initializeMap() {
     });
 
     function contentString(name) {
-      var contentString
+      var contentString;
       if (name === "Denver, CO, USA") {
-        contentString = '<p>Full-stack developer at the ATHN</p>'
+        contentString = '<p>Full-stack developer at the ATHN</p>';
       } else {
-        contentString = '<p>Research Specialist at Group Health Research Institute</p>'
+        contentString = '<p>Research Specialist at Group Health Research Institute</p>';
       }
 
       return ('<div id="content">' +
