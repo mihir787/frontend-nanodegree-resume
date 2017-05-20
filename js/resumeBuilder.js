@@ -53,8 +53,7 @@ var bio = {
 };
 
 var education = {
-  schools: [
-    {
+  schools: [{
       name: 'University of Washington',
       location: 'Seattle, WA',
       degree: 'Bachelor of Science',
@@ -71,50 +70,47 @@ var education = {
       url: 'https://www.turing.io/'
     },
   ],
-  onlineCourses: [
-    {
-      title: 'Frontend Nanodegree',
-      school: 'Udacity',
-      dates: '05/2017-Present',
-      url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
-    }
-  ],
+  onlineCourses: [{
+    title: 'Frontend Nanodegree',
+    school: 'Udacity',
+    dates: '05/2017-Present',
+    url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+  }],
   display: function() {
     //schools
     this.schools.forEach(function(school) {
-     $('#education').append(HTMLschoolStart);
-     var formattedNameAndDegree = formattedAttribute(HTMLschoolName, school.name) + formattedAttribute(HTMLschoolDegree, school.degree);
+      $('#education').append(HTMLschoolStart);
+      var formattedNameAndDegree = formattedAttribute(HTMLschoolName, school.name) + formattedAttribute(HTMLschoolDegree, school.degree);
 
-     $(".education-entry:last").append(formattedNameAndDegree);
+      $(".education-entry:last").append(formattedNameAndDegree);
 
-     $(".education-entry:last").append(formattedAttribute(HTMLschoolDates, school.dates));
+      $(".education-entry:last").append(formattedAttribute(HTMLschoolDates, school.dates));
 
-     $(".education-entry:last").append(formattedAttribute(HTMLschoolLocation, school.location));
+      $(".education-entry:last").append(formattedAttribute(HTMLschoolLocation, school.location));
 
-     if (school.majors.length > 0) {
-       school.majors.forEach(function(major){
-         $(".education-entry:last").append(formattedAttribute(HTMLschoolMajor, major));
-       });
-     }
-   });
-   //online classes
-   $('#education').append(HTMLonlineClasses)
-   this.onlineCourses.forEach(function(course){
-     $('#education').append(HTMLschoolStart);
+      if (school.majors.length > 0) {
+        school.majors.forEach(function(major) {
+          $(".education-entry:last").append(formattedAttribute(HTMLschoolMajor, major));
+        });
+      }
+    });
+    //online classes
+    $('#education').append(HTMLonlineClasses)
+    this.onlineCourses.forEach(function(course) {
+      $('#education').append(HTMLschoolStart);
 
-     var formattedTitleAndSchool = formattedAttribute(HTMLonlineTitle, course.title) + formattedAttribute(HTMLonlineSchool, course.school)
-     $(".education-entry:last").append(formattedTitleAndSchool);
+      var formattedTitleAndSchool = formattedAttribute(HTMLonlineTitle, course.title) + formattedAttribute(HTMLonlineSchool, course.school)
+      $(".education-entry:last").append(formattedTitleAndSchool);
 
-     $(".education-entry:last").append(formattedAttribute(HTMLonlineDates, course.dates));
+      $(".education-entry:last").append(formattedAttribute(HTMLonlineDates, course.dates));
 
-     $(".education-entry:last").append(formattedAttribute(HTMLonlineURL, course.url));
-   });
+      $(".education-entry:last").append(formattedAttribute(HTMLonlineURL, course.url));
+    });
   }
 };
 
 var work = {
-  jobs: [
-    {
+  jobs: [{
       employer: 'American Thrombosis and Hemostasis Network',
       title: 'Full-stack software developer',
       location: 'Denver, CO',
@@ -145,8 +141,7 @@ var work = {
 }
 
 var projects = {
-  projects: [
-    {
+  projects: [{
       title: 'Marvel.us',
       dates: '2015',
       description: 'Ruby on Rails application that analyzes tweets to match users with a superhero.',
