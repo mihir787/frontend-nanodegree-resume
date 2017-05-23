@@ -129,7 +129,7 @@ var work = {
     this.jobs.forEach(function(job) {
       $("#workExperience").append(HTMLworkStart);
 
-      var formettedEmployerTitle = formattedAttribute(HTMLworkEmployer, job.employer); + formattedAttribute(HTMLworkTitle, job.title);
+      var formettedEmployerTitle = formattedAttribute(HTMLworkEmployer, job.employer) + formattedAttribute(HTMLworkTitle, job.title);
       $(".work-entry:last").append(formettedEmployerTitle);
 
       $(".work-entry:last").append(formattedAttribute(HTMLworkDates, job.dates));
